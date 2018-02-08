@@ -10,7 +10,7 @@ data = []
 for i in range(18):
     data.append([])
 n_row = 0
-text = open('H:/train.csv', 'r', encoding='big5')
+text = open('/train.csv', 'r', encoding='big5')
 row = csv.reader(text, delimiter=",")
 for r in row:
     # 第0列沒有資訊
@@ -65,13 +65,13 @@ for i in range(repeat):
     print('iteration: %d | Cost: %f  ' % (i, cost_a))
 
 # save model
-np.save('H:/model.npy', w)
+np.save('/model.npy', w)
 # read model
-w = np.load('H:/model.npy')
+w = np.load('/model.npy')
 
 test_x = []
 n_row = 0
-text = open('H:/test.csv', "r")
+text = open('/test.csv', "r")
 row = csv.reader(text, delimiter=",")
 
 for r in row:
@@ -98,7 +98,7 @@ for i in range(len(test_x)):
     a = np.dot(w, test_x[i])
     ans[i].append(a)
 
-filename = "H:/predict.csv"
+filename = "/predict.csv"
 text = open(filename, "w+")
 s = csv.writer(text, delimiter=',', lineterminator='\n')
 s.writerow(["id", "value"])
